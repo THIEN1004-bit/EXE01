@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Bảng màu chủ đạo: Xanh dương hiện đại */
+  --text: #475569;        /* Xám xanh cho văn bản */
+  --text-h: #0f172a;      /* Đen đậm cho tiêu đề */
+  --bg: #ffffff;          /* Trắng tinh khiết */
+  --border: #e2e8f0;      /* Xám nhạt cho đường kẻ */
+  --code-bg: #f1f5f9;     /* Xám xanh rất nhạt cho nền code */
+  --accent: #2563eb;      /* Xanh dương chủ đạo (Primary Blue) */
+  --accent-bg: rgba(37, 99, 235, 0.1); /* Nền xanh dương nhạt */
+  --accent-border: rgba(37, 99, 235, 0.5);
+  --social-bg: rgba(241, 245, 249, 0.5);
+  --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
+
+  --sans: 'Inter', system-ui, sans-serif;
+  --heading: 'Inter', system-ui, sans-serif;
+  --mono: ui-monospace, Consolas, monospace;
+
+  font: 18px/145% var(--sans);
+  color: var(--text);
+  background: var(--bg);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+
+  @media (max-width: 1024px) {
+    font-size: 16px;
+  }
+}
+
+/* Chế độ Dark Mode (Tối ưu cho Xanh dương) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #94a3b8;
+    --text-h: #f8fafc;
+    --bg: #0f172a;
+    --border: #1e293b;
+    --code-bg: #1e293b;
+    --accent: #60a5fa;
+    --accent-bg: rgba(96, 165, 250, 0.15);
+  }
+}
+
+body { margin: 0; }
+
+#root {
+  width: 1126px;
+  max-width: 100%;
+  margin: 0 auto;
+  border-inline: 1px solid var(--border);
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1, h2 {
+  font-family: var(--heading);
+  font-weight: 600; /* Đậm hơn một chút để nổi bật */
+  color: var(--text-h);
+}
+
+h1 {
+  font-size: 56px;
+  letter-spacing: -1.68px;
+  margin: 32px 0;
+  @media (max-width: 1024px) { font-size: 36px; margin: 20px 0; }
+}
+
+p { margin: 0; }
+
+code, .counter {
+  font-family: var(--mono);
+  display: inline-flex;
+  border-radius: 6px;
+  color: var(--accent); /* Đổi màu code sang xanh để đồng bộ */
+  background: var(--code-bg);
+  padding: 2px 6px;
+}
